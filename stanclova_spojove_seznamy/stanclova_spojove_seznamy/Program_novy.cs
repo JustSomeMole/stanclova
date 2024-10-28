@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using System.Xml.Linq;
 
 namespace informatika_ukoly
@@ -8,6 +10,7 @@ namespace informatika_ukoly
     {
         static void Main(string[] args)
         {
+            //Node uzlik = new Node(8); //hodnota a hodnota next, ... bude novým objektem v paměti, který je zpracován prostřednictvím třídy Node
             LinkedList seznam = new LinkedList();
             seznam.Add(4);
             seznam.Add(0);
@@ -24,11 +27,24 @@ namespace informatika_ukoly
                 Console.WriteLine("Nalezeno minimum: " + x);
             }
 
-            Console.WriteLine(linkedList.PrintLinkedList());
-            linkedList.SortLinkedList();
-            Console.WriteLine(linkedList.PrintLinkedList());
+            Console.WriteLine(seznam.PrintLinkedList());
+            seznam.SortLinkedList();
+            Console.WriteLine(seznam.PrintLinkedList());
+
+            LinkedList seznamDva = new LinkedList();
+            seznamDva.Add(3);
+            seznamDva.Add(-5);
+            seznamDva.Add(28);
+            seznamDva.Add(0);
+            seznamDva.Add(4);
+
+            //otestovani ... prosim funguj
+            seznam.PrintLinkedList();
+            seznamDva.PrintLinkedList();
+            seznam.DestructiveIntersection(seznam, seznamDva);
+            seznam.PrintLinkedList();
+
             Console.ReadLine();
-            //Node uzlik = new Node(8); //hodnota a hodnota next, ... bude novým objektem v paměti, který je zpracován prostřednictvím třídy Node
         }
     }
 
@@ -39,7 +55,7 @@ namespace informatika_ukoly
         {
             Value = value; //hodnota argumentu předaná do konstruktoru je přiřazena vlastnosti Value nově vytvořeného uzlu
         }
-        public int Value { get; } //deklaruje vlastnost Value, která uchovává hodnotu uzlu (je pouze pro čtení)
+        public int Value { get; set; } //deklaruje vlastnost Value, která uchovává hodnotu uzlu (je pouze pro čtení)
         public Node Next { get; set; } //odkazuje na další uzel v seznamu (nebo je null, pokud je poslední)
     }
 
@@ -60,6 +76,7 @@ namespace informatika_ukoly
                 Head = newNode; //přehodíme hlavu, aby ukazovala na nový první prvek
             }
         }
+
 
         public bool Search(int value)
         {
@@ -115,49 +132,6 @@ namespace informatika_ukoly
 
         public void SortLinkedList()
         {
-                
-            if (Head == null)
-                return;
-            Node praveTed = Head;
-            int promena = 0;
-            while(true)
-            {
-                bool uz = false;
-                while (praveTed.Next != null)
-                {
-                    if (praveTed.Value > praveTed.Next.Value)
-                    {
-                        promena = praveTed.Value;
-                        praveTed.Value = praveTed.Next.Value;
-                        praveTed.Next.Value = promena;
-                        uz = true;
-                    }
-                    praveTed = praveTed.Next;
-                }
-                    
-                if (uz == false)
-                    break;
-                praveTed = Head;      
-            }
-        }
-
-        public string PrintLinkedList()
-        {
-            if (Head == null)
-                return "Seznam je prázdný";
-            Node praveTed = Head;
-            StringBuilder listCisel = new StringBuilder();
-
-            while (praveTed != null)
-            {
-                listCisel.Append(praveTed.Value + " ");
-                praveTed = praveTed.Next;
-            }
-            return listCisel.ToString();
-        }
-
-        public void SortLinkedList()
-        {
             if (Head == null)
                 return;
 
@@ -182,6 +156,54 @@ namespace informatika_ukoly
                 if (uz == false)
                     break;
             }
+        }
+
+        public void ClearList()
+        {
+            Head = null;
+        }
+
+        public static void DestructiveIntersection(LinkedList list1, LinkedList list2)
+        {
+            Node praveTed1 = list1.Head;
+            Node predTed1 = null;
+
+            while (praveTed1 != null)
+            {
+                Node praveTed2 = list2.Head;
+                bool nalezenoVlist2 = false;
+
+                while (praveTed2 != null)
+                {
+                    if (praveTed1.Value == praveTed2.Value) //najdu stejný prvek ... v obou seznamech
+                    {
+                        nalezenoVlist2 = true;
+                        break;
+                    }
+                    praveTed2 = praveTed2.Next;
+                }
+
+                if (nalezenoVlist2 == false) //pokud jsem nenašla stejný prvek v seznamu2 jako prvek v 1. seznamu
+                {
+                    if (predTed1 != null) //před prvkem něco je
+                    {
+                        predTed1.Next = praveTed1.Next; //sloučim je dohromady, hus fuc prvek = odstranění
+                    }
+                    else //pokud před prvkem nic není -> predTed1 je null ... musím hlavu posunout na další prvek, jinak bych byla v pytli (to už jsem)
+                    {
+                        list1.Head = praveTed1.Next;
+                    }
+                    Node chciOdstranit = praveTed1;
+                    praveTed1 = praveTed1.Next;
+                    chciOdstranit = null;
+                }
+                else //našla jsem, takže nic nedělám
+                {
+                    predTed1 = praveTed1;
+                    praveTed1 = praveTed1.Next;
+                }
+            }
+            list2.ClearList();
         }
     }
 }
