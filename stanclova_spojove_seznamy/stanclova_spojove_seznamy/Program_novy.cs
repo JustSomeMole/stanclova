@@ -23,6 +23,11 @@ namespace informatika_ukoly
             {
                 Console.WriteLine("Nalezeno minimum: " + x);
             }
+
+            Console.WriteLine(linkedList.PrintLinkedList());
+            linkedList.SortLinkedList();
+            Console.WriteLine(linkedList.PrintLinkedList());
+            Console.ReadLine();
             //Node uzlik = new Node(8); //hodnota a hodnota next, ... bude novým objektem v paměti, který je zpracován prostřednictvím třídy Node
         }
     }
@@ -90,6 +95,92 @@ namespace informatika_ukoly
                 }
                 //Console.WriteLine("Nalezené minimum: " + minValue);
                 return minValue;
+            }
+        }
+
+        public string PrintLinkedList()
+        {
+            if (Head == null)
+                return "Seznam je prázdný";
+            Node praveTed = Head;
+            StringBuilder listCisel = new StringBuilder();
+
+            while (praveTed != null)
+            {
+                listCisel.Append(praveTed.Value + " ");
+                praveTed = praveTed.Next;
+            }
+            return listCisel.ToString();
+        }
+
+        public void SortLinkedList()
+        {
+                
+            if (Head == null)
+                return;
+            Node praveTed = Head;
+            int promena = 0;
+            while(true)
+            {
+                bool uz = false;
+                while (praveTed.Next != null)
+                {
+                    if (praveTed.Value > praveTed.Next.Value)
+                    {
+                        promena = praveTed.Value;
+                        praveTed.Value = praveTed.Next.Value;
+                        praveTed.Next.Value = promena;
+                        uz = true;
+                    }
+                    praveTed = praveTed.Next;
+                }
+                    
+                if (uz == false)
+                    break;
+                praveTed = Head;      
+            }
+        }
+
+        public string PrintLinkedList()
+        {
+            if (Head == null)
+                return "Seznam je prázdný";
+            Node praveTed = Head;
+            StringBuilder listCisel = new StringBuilder();
+
+            while (praveTed != null)
+            {
+                listCisel.Append(praveTed.Value + " ");
+                praveTed = praveTed.Next;
+            }
+            return listCisel.ToString();
+        }
+
+        public void SortLinkedList()
+        {
+
+            if (Head == null)
+                return;
+            Node praveTed = Head;
+            int promena = 0;
+            while (true)
+            {
+                bool uz = false;
+                while (praveTed.Next != null)
+                {
+                    if (praveTed.Value > praveTed.Next.Value)
+                    {
+                        promena = praveTed.Value;
+                        praveTed.Value = praveTed.Next.Value;
+                        praveTed.Next.Value = promena;
+                        uz = true;
+                    }
+                    praveTed = praveTed.Next;
+                }
+
+                if (uz == false)
+                    break;
+                praveTed = Head;
             }
         }
     }
