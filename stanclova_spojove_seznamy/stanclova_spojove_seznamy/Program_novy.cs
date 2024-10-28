@@ -158,14 +158,16 @@ namespace informatika_ukoly
 
         public void SortLinkedList()
         {
-
             if (Head == null)
                 return;
+
             Node praveTed = Head;
             int promena = 0;
+            bool uz = false;
             while (true)
             {
-                bool uz = false;
+                uz = false;
+                praveTed = Head;
                 while (praveTed.Next != null)
                 {
                     if (praveTed.Value > praveTed.Next.Value)
@@ -177,10 +179,8 @@ namespace informatika_ukoly
                     }
                     praveTed = praveTed.Next;
                 }
-
                 if (uz == false)
                     break;
-                praveTed = Head;
             }
         }
     }
