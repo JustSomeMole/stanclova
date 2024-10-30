@@ -12,11 +12,15 @@ namespace informatika_ukoly
         {
             //Node uzlik = new Node(8); //hodnota a hodnota next, ... bude novým objektem v paměti, který je zpracován prostřednictvím třídy Node
             LinkedList seznam = new LinkedList();
-            seznam.Add(4);
+            seznam.Add(5);
             seznam.Add(0);
-            seznam.Add(-5);
-            seznam.Add(25);
+            seznam.Add(0);
+            seznam.Add(0);
+            seznam.Add(0);
+            seznam.Add(1);
 
+
+            /*
             int x = seznam.SearchForMin();
             if (x == Int32.MaxValue)
             {
@@ -30,19 +34,22 @@ namespace informatika_ukoly
             Console.WriteLine(seznam.PrintLinkedList());
             seznam.SortLinkedList();
             Console.WriteLine(seznam.PrintLinkedList());
+            */
 
             LinkedList seznamDva = new LinkedList();
-            seznamDva.Add(3);
-            seznamDva.Add(-5);
-            seznamDva.Add(28);
+            seznamDva.Add(-1);
             seznamDva.Add(0);
-            seznamDva.Add(4);
+            seznamDva.Add(-8);
+            seznamDva.Add(0);
+            seznamDva.Add(0);
+            seznamDva.Add(5);
+            seznamDva.Add(24);
 
-            //otestovani ... prosim funguj
-            seznam.PrintLinkedList();
-            seznamDva.PrintLinkedList();
-            seznam.DestructiveIntersection(seznam, seznamDva);
-            seznam.PrintLinkedList();
+            //otestovani ... prosim funguj ... pokus tak 89283 nefunguje... pomoc ... já tam nedala Console.Writeline... :_(((
+            Console.WriteLine(seznam.PrintLinkedList());
+            Console.WriteLine(seznamDva.PrintLinkedList());
+            LinkedList.DestructiveIntersection(seznam, seznamDva);
+            Console.WriteLine(seznam.PrintLinkedList());
 
             Console.ReadLine();
         }
@@ -81,7 +88,7 @@ namespace informatika_ukoly
         public bool Search(int value)
         {
             Node node = Head; //vytvoříme si pomocnou proměnnou, ve které bude aktuální prohlížený prvek. Na začátku je jím hlava, tedy prvek první.
-            while (node.Next != null) //dokud není konec seznamu
+            while (node != null) //dokud není konec seznamu
             {
                 if (node.Value == value) //pokud prvek se stejnou hodnotou jakou hledáme
                     return true;
@@ -142,7 +149,7 @@ namespace informatika_ukoly
             {
                 uz = false;
                 praveTed = Head;
-                while (praveTed.Next != null)
+                while (praveTed != null)
                 {
                     if (praveTed.Value > praveTed.Next.Value)
                     {
@@ -163,8 +170,34 @@ namespace informatika_ukoly
             Head = null;
         }
 
+        public static void AbradabraFucDulicates(LinkedList list) //static = nepotřebuji jinou třídu, nemusím to psát, zlehčí to
+        {
+            if (list == null) return;
+            if (list.Head == null) return;
+            else
+            {
+                Node praveTed = list.Head;
+                while (praveTed.Next != null)
+                {
+                    Node promenaKontrola = praveTed;
+                    while (promenaKontrola.Next != null)
+                    {
+                        if (promenaKontrola.Next.Value == praveTed.Value)
+                        {
+                            promenaKontrola.Next = promenaKontrola.Next.Next; //odstraním uzel
+                        }
+                        else
+                        {
+                            promenaKontrola = promenaKontrola.Next;
+                        }
+                    }
+                    praveTed = praveTed.Next;
+                }
+            }
+        }
         public static void DestructiveIntersection(LinkedList list1, LinkedList list2)
         {
+            AbradabraFucDulicates(list1);
             Node praveTed1 = list1.Head;
             Node predTed1 = null;
 
@@ -193,9 +226,7 @@ namespace informatika_ukoly
                     {
                         list1.Head = praveTed1.Next;
                     }
-                    Node chciOdstranit = praveTed1;
                     praveTed1 = praveTed1.Next;
-                    chciOdstranit = null;
                 }
                 else //našla jsem, takže nic nedělám
                 {
@@ -207,3 +238,4 @@ namespace informatika_ukoly
         }
     }
 }
+
