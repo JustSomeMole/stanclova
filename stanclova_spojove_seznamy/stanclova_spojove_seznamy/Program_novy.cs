@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Xml.Linq;
+﻿using System.Text;
 
-namespace informatika_ukoly
+namespace testovani
 {
     internal class Program
     {
@@ -12,13 +8,9 @@ namespace informatika_ukoly
         {
             //Node uzlik = new Node(8); //hodnota a hodnota next, ... bude novým objektem v paměti, který je zpracován prostřednictvím třídy Node
             LinkedList seznam = new LinkedList();
-            seznam.Add(5);
-            seznam.Add(0);
-            seznam.Add(0);
-            seznam.Add(0);
             seznam.Add(0);
             seznam.Add(1);
-
+            seznam.Add(2);
 
             /*
             int x = seznam.SearchForMin();
@@ -39,16 +31,21 @@ namespace informatika_ukoly
             LinkedList seznamDva = new LinkedList();
             seznamDva.Add(-1);
             seznamDva.Add(0);
-            seznamDva.Add(-8);
-            seznamDva.Add(0);
-            seznamDva.Add(0);
-            seznamDva.Add(5);
-            seznamDva.Add(24);
+            seznamDva.Add(1);
+            seznamDva.Add(2);
+            seznamDva.Add(3);
 
             //otestovani ... prosim funguj ... pokus tak 89283 nefunguje... pomoc ... já tam nedala Console.Writeline... :_(((
+            /*          
             Console.WriteLine(seznam.PrintLinkedList());
             Console.WriteLine(seznamDva.PrintLinkedList());
             LinkedList.DestructiveIntersection(seznam, seznamDva);
+            Console.WriteLine(seznam.PrintLinkedList());
+            */
+
+            Console.WriteLine(seznam.PrintLinkedList());
+            Console.WriteLine(seznamDva.PrintLinkedList());
+            LinkedList.DestructiveUnification(seznam, seznamDva);
             Console.WriteLine(seznam.PrintLinkedList());
 
             Console.ReadLine();
@@ -195,6 +192,7 @@ namespace informatika_ukoly
                 }
             }
         }
+
         public static void DestructiveIntersection(LinkedList list1, LinkedList list2)
         {
             AbradabraFucDulicates(list1);
@@ -236,6 +234,26 @@ namespace informatika_ukoly
             }
             list2.ClearList();
         }
+
+        public static void DestructiveUnification(LinkedList list1, LinkedList list2)
+        {
+            AbradabraFucDulicates(list1);
+            AbradabraFucDulicates(list2);
+
+            Node praveTed2 = list2.Head;
+            Node praveTed1 = list1.Head;
+
+            while (praveTed2 != null)
+            {
+                if (list1.Search(praveTed2.Value) == false)
+                {
+                    list1.Add(praveTed2.Value);
+                }
+                praveTed2 = praveTed2.Next;
+            }
+            list2.ClearList();
+        }
     }
 }
+
 
