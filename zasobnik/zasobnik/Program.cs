@@ -12,32 +12,31 @@ namespace zasobnik
         {
             Console.WriteLine("Napište Vaše závorky");
             string zavorkyPomocny = Console.ReadLine(); //už rovnou to je jako list polí... každý znak je jedno pole, můžu k nim přistupovat po indexech
+            ConsoleWriteLine(SpravneZavorkyOtaznik(zavorkyPomocny));
         }
         static bool SpravneZavorkyOtaznik(string seznamZavorek)
         {
-            Stack<char> stackZavorekOtevrene = new Stack<char>(); //char je jeden znak v string
-            Stack<char> stackZavorekZavrene = new Stack<char>();
-
-            while (true)
+            Stack<char> stackZavorek = new Stack<char>(); //char je jeden znak v string  
+            for (int i = 1; i < seznamZavorek.Length; i++)
             {
-                if (seznamZavorek[0] == '(' || seznamZavorek[0] == '[' || seznamZavorek[0] == '{')
+                
+                char prvniVstack = stackZavorek.Peek(); //nutný zkontrlovat, že tam něco je, jinak nejde peek!!!!!
+                
+                if (prvniVstack == '(' && seznamZavorek[i] == ')' || prvniVstack == '[' && seznamZavorek[i] == ']' || prvniVstack == '{' && seznamZavorek[i] == '}')
                 {
-                    stackZavorekOtevrene.Push(seznamZavorek[0]);
+                    stackZavorek.Pop();
                 }
-                else if (seznamZavorek[0] == '(' || seznamZavorek[0] == '[' || seznamZavorek[0] == '{')
-                {
-                    stackZavorekZavrene.Push(seznamZavorek[0]);
-                }
+
                 else
                 {
-                    break;
+                    stackZavorek.Push(seznamZavorek[i]);
                 }
             }
-            while (true)
-            { 
+            if (stackZavorek.Count > 0)
+            {
+                return false;
             }
-            { //porovnat stacky
-
+            return true;     
         }
     }
 }
