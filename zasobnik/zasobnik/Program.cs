@@ -24,7 +24,8 @@ namespace zasobnik
         }
         static bool SpravneZavorkyOtaznik(string seznamZavorek)
         {
-            Stack<char> stackZavorek = new Stack<char>(); //char je jeden znak v string  
+            Stack<char> stackZavorek = new Stack<char>(); //char je jeden znak v string
+
             stackZavorek.Push(seznamZavorek[0]);
 
             for (int i = 1; i < seznamZavorek.Length; i++)
@@ -50,33 +51,57 @@ namespace zasobnik
             return true;     //gitkraken mi právě smazal půlku mého kódu... 
         }
 
-        static void RozlozNaSoucty(int zadaneCislo) //budu vracet seznamy v seznamech
+        static Stack<int> VytvorZasobnik(int pridavamCislo, int kdyKoncit)
         {
-            Stack<int> stackCisla = new Stack<int>();
+            Stack<int> zasobnik = new Stack<int>();
+            int suma = 0;
 
-            for (int i = 1; i <= zadaneCislo; i++) //udělám si zásobník plný 1 ... dle zadaného čísla ... např.: mám 5, proto 1, 1, 1, 1, 1
+            while (suma + pridavamCislo <= kdyKoncit) //snažím se přidat co nejvíce čísel
             {
-                stackCisla.Push(1);
+                zasobnik.Push(pridavamCislo);
+                suma += pridavamCislo;             //suma 0, přidám 2 -> suma 2, zásobník 2, přidám 2 -> suma 4, zásobník 2,2   ... pokud bych chtěla přidat 2, bude to větší než 5 -> konec
             }
 
-            Console.WriteLine(string.Join(" + ", stackCisla.Reverse()));  //toto není vůbec hezké a měla bych to spíš přidat do seznamů a ty pak vypsat...
-
-            while (true) //vždy sečtu první dvě čísla, vrátím a vypíšu a znovu
+            int zbyva = kdyKoncit - suma;   //pokud to nemám celé, takže mi zbývá, doplním to 1
+            while (zbyva > 0)
             {
-                if (stackCisla.Count != 1)
-                {
-                    int a = stackCisla.Pop();                                           //např.: 1, 1, 1, 1, 1 -> 1, 1, 1, 2
-                    int b = stackCisla.Pop();                                           //např.: 1, 1, 1, 2 -> 1, 1, 3
-                    int vysledek = a + b;                                               //např.: 1, 1, 3 -> 1, 4
-                    stackCisla.Push(vysledek);                                          //např.: 1, 4 -> 5
-                    Console.WriteLine(string.Join(" + ", stackCisla.Reverse())); //reverse otočí zásobník, string join to spojí do 1 řetězce a dá mezi to +
-                }
-
-                else
-                {
-                    break;  
-                }
+                zasobnik.Push(1);
+                zbyva--;
             }
+
+            return zasobnik;
+        }
+
+        static void RozlozNaSoucty(int zadaneCislo)
+        {
+            int k = 1;
+            List<string> jedinecneSoucty = new List<string>(); //abych mohla kontrolovat, že nejsou duplikaty
+
+            while (k < zadaneCislo)  //k zvětšuji a "odečítám"
+            {
+                Stack<int> stackCisla = VytvorZasobnik(k, zadaneCislo); //udělám zásobník, nejprve plný 1, pak třeba 2 a doplněn o 1, ...
+
+                while (stackCisla.Count > 1) //dokud v zásobníku něco bude
+                {
+                    // Normalizace kombinace
+                    var serazeneCisla = stackCisla.OrderBy(x => x).ToList();   //abych vše mohla kontrolovat spolu a neměla otočené duplikáty
+                    string Edvard = string.Join(" + ", serazeneCisla);          //Edvard. On ví. Jím budu kontrolovat
+
+                    if (!jedinecneSoucty.Contains(Edvard))  //fuč fuč duplikáty
+                    {
+                        jedinecneSoucty.Add(Edvard);
+                        Console.WriteLine(Edvard);
+                    }
+
+                    int a = stackCisla.Pop();   //vždy sečtu první dvě čísla, vrátím a vypíšu a znovu
+                    int b = stackCisla.Pop();   //např.: 1, 1, 1, 1, 1 -> 1, 1, 1, 2      //např.: 1, 1, 1, 2 -> 1, 1, 3       //např.: 1, 1, 3 -> 1, 4
+                    int vysledek = a + b;
+
+                    stackCisla.Push(vysledek);
+                }
+                k++;
+            }
+            Console.WriteLine(zadaneCislo);
         }
     }
 }
