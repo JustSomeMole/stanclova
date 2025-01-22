@@ -1,0 +1,29 @@
+body {
+  background-color: lightblue;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; 
+}
+
+.left {
+  width: 45%;
+  text-align: left; 
+  margin-bottom: 20px; 
+}
+
+.right {
+  width: 45%;
+  text-align: right;
+  margin-bottom: 20px; /*mezera mezi boxy/odstavci*/
+}
+
+.centered-text {
+  display: flex;
+  justify-content: center; /* Horizontální centrování */
+  align-items: center; /* Vertikální centrování */
+  height: 5vh;
+  background-color: darkcyan; /* Pro lepší vizualizaci */
+}
