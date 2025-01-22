@@ -1,0 +1,7 @@
+C:\MOJE\stanclova\spamovani_min\spamovani_min\obj\Debug\spamovani_min.csproj.AssemblyReference.cache
+C:\MOJE\stanclova\spamovani_min\spamovani_min\obj\Debug\spamovani_min.csproj.CoreCompileInputs.cache
+C:\MOJE\stanclova\spamovani_min\spamovani_min\bin\Debug\spamovani_min.exe.config
+C:\MOJE\stanclova\spamovani_min\spamovani_min\bin\Debug\spamovani_min.exe
+C:\MOJE\stanclova\spamovani_min\spamovani_min\bin\Debug\spamovani_min.pdb
+C:\MOJE\stanclova\spamovani_min\spamovani_min\obj\Debug\spamovani_min.exe
+C:\MOJE\stanclova\spamovani_min\spamovani_min\obj\Debug\spamovani_min.pdb
