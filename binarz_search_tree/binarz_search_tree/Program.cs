@@ -40,7 +40,7 @@ namespace binarz_search_tree
                 }
             }
             Console.WriteLine(tree.Find(20).Value);
-
+            Console.ReadLine();
         }
     }
 
@@ -69,20 +69,82 @@ namespace binarz_search_tree
         public Node<T> Root { get; private set; } // kořen stromu nastavujeme interně, ne z žádné jiné třídy => private set 
 
 
-        public void Insert(int newKey, T newValue) // chceme, aby nikdo zvenku nemusel specifikovat kořen stromu, a dtrom sám ví, co je jeho kořen => rozdělíme na public Insert a rekurzivní private _insert
+        public void Delete(int fucKey)
         {
-            Node<T> _insert(Node<T> node, int newKey, T newValue)
+            Node<T> _minForDaDelete(Node<T> node)
             {
+                if (node.LeftSon == null)
+                    return node;
 
+                return _min(node.LeftSon);
             }
 
+            if (Find(fucKey) == null)
+            {
+                return;
+            }
+
+            Node<T> nodeDelete = Find(fucKey);
+
+            if (nodeDelete.RightSon == null)
+            {
+                nodeDelete = nodeDelete.LeftSon;
+            }
+            else if (nodeDelete.RightSon != null && nodeDelete.LeftSon != null)
+            { 
+                nodeDelete = Find(nodeDelete.RightSon.Key);
+            }
+
+            
+        }
+
+
+        public void Insert(int newKeyX, T newValueX) // chceme, aby nikdo zvenku nemusel specifikovat kořen stromu, a dtrom sám ví, co je jeho kořen => rozdělíme na public Insert a rekurzivní private _insert
+        {
+            bool _insert(Node<T> node, int newKey, T newValue)
+            {
+
+                if (node.Key == newKey)
+                {
+                    return false;
+                }
+
+                else if (node.Key > newKey)
+                {
+                    if (node.LeftSon == null)
+                    {
+                        node.LeftSon = new Node<T>(newKey, newValue);
+                    }
+                    else 
+                    {
+                        node = node.LeftSon;
+                        _insert(node, newKey, newValue);
+                    }
+                }
+
+                else if (node.Key < newKey)
+                {
+                    if (node.RightSon == null)
+                    {
+                        node.RightSon = new Node<T>(newKey, newValue);
+                    }
+                    else
+                    {
+                        node = node.RightSon;
+                        _insert(node, newKey, newValue);
+                    }
+                }
+
+                return true;
+
+            }
 
             if (Root == null)
             {
-                Root = new Node<T>(newKey, newValue);
+                Root = new Node<T>(newKeyX, newValueX);
             }
             else
-                _insert(Root, newKey, newValue);
+                _insert(Root, newKeyX, newValueX);
         }
 
 
@@ -138,6 +200,7 @@ namespace binarz_search_tree
         {
             return _min(Root);
         }
+
         private Node<T> _min(Node<T> node)
         {
             if (node.LeftSon == null)
@@ -145,7 +208,6 @@ namespace binarz_search_tree
 
             return _min(node.LeftSon);
         }
-
     }
 
     class Student
@@ -157,12 +219,13 @@ namespace binarz_search_tree
 
         public string ClassName { get; }
 
-        public Student(int id, string firstName, string lastName, int age, string ClassName)
+        public Student(int id, string firstName, string lastName, int age, string className)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             Age = age;
+            ClassName = className;
         }
 
         // aby se nám při Console.WriteLine(student) nevypsala jen nějaká adresa v paměti,
