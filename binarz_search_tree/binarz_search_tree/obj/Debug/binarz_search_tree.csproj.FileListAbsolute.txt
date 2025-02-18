@@ -1,7 +1,0 @@
-O:\Seminář\binarz_search_tree\binarz_search_tree\bin\Debug\binarz_search_tree.exe.config
-O:\Seminář\binarz_search_tree\binarz_search_tree\bin\Debug\binarz_search_tree.exe
-O:\Seminář\binarz_search_tree\binarz_search_tree\bin\Debug\binarz_search_tree.pdb
-O:\Seminář\binarz_search_tree\binarz_search_tree\obj\Debug\binarz_search_tree.csproj.AssemblyReference.cache
-O:\Seminář\binarz_search_tree\binarz_search_tree\obj\Debug\binarz_search_tree.csproj.CoreCompileInputs.cache
-O:\Seminář\binarz_search_tree\binarz_search_tree\obj\Debug\binarz_search_tree.exe
-O:\Seminář\binarz_search_tree\binarz_search_tree\obj\Debug\binarz_search_tree.pdb
