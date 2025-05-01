@@ -1,0 +1,7 @@
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\bin\Debug\stanclova_aritmeticke_vyrazy.exe.config
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\bin\Debug\stanclova_aritmeticke_vyrazy.exe
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\bin\Debug\stanclova_aritmeticke_vyrazy.pdb
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\obj\Debug\stanclova_aritmeticke_vyrazy.csproj.AssemblyReference.cache
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\obj\Debug\stanclova_aritmeticke_vyrazy.csproj.CoreCompileInputs.cache
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\obj\Debug\stanclova_aritmeticke_vyrazy.exe
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy\obj\Debug\stanclova_aritmeticke_vyrazy.pdb

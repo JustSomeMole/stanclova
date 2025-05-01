@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stanclova_aritmeticke_vyrazy", "stanclova_aritmeticke_vyrazy\stanclova_aritmeticke_vyrazy.csproj", "{8989597F-10FD-44CA-9930-BB579FB68401}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8989597F-10FD-44CA-9930-BB579FB68401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8989597F-10FD-44CA-9930-BB579FB68401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8989597F-10FD-44CA-9930-BB579FB68401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8989597F-10FD-44CA-9930-BB579FB68401}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EAFBF0F8-D06F-4F48-9ADF-9FBE9C5EAC5F}
+	EndGlobalSection
+EndGlobal
