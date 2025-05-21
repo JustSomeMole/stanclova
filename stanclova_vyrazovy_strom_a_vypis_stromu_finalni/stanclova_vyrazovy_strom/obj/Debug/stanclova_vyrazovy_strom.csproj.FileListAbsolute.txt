@@ -1,0 +1,14 @@
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\bin\Debug\stanclova_vyrazovy_strom.exe.config
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\bin\Debug\stanclova_vyrazovy_strom.exe
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\bin\Debug\stanclova_vyrazovy_strom.pdb
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.csproj.AssemblyReference.cache
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.csproj.CoreCompileInputs.cache
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.exe
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.pdb
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\bin\Debug\stanclova_vyrazovy_strom.exe.config
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\bin\Debug\stanclova_vyrazovy_strom.exe
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\bin\Debug\stanclova_vyrazovy_strom.pdb
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.csproj.AssemblyReference.cache
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.csproj.CoreCompileInputs.cache
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.exe
+C:\MOJE\ŠKOLA\IVT\Programování\stanclova_vyrazovy_strom_a_vypis_stromu\stanclova_vyrazovy_strom\obj\Debug\stanclova_vyrazovy_strom.pdb
